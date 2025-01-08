@@ -12,7 +12,7 @@
     <?php endif; ?>
     <form method="POST" action="pages/formhandler.php">
         <label for="name">Nome:</label> 
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name">
 
         <label for="gender">Genere:</label>
         <select id="gender" name="gender">

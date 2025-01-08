@@ -23,7 +23,8 @@
 
         // Validazione
         if (empty($nome)) {
-            echo "<h2>Errore: il nome dello studente è obbligatorio.</h2>";
+            $_SESSION['error_message'] = "<strong>Manca il nome dello studente</strong>";
+            header("Location: error.php");
             exit;
         }
 
@@ -73,7 +74,7 @@
         </p>
     </div>
 
-    <button onclick="window.location.href='/index.php'"> Inserire un nuovo studento </button>
+    <button onclick="window.location.href='../index.php'"> Inserire un nuovo studento </button>
     <button onclick="window.location.href='final.php'"> Termina Scrutinio </button>
 
 </body>
