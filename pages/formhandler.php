@@ -7,11 +7,7 @@
 
     // Funzione per determinare l'esito dello studente
     function calcolaEsito($insufficienti) {
-        if($insufficienti >= 3){
-            return false;
-        } else {
-            return true;
-        }
+        return $insufficienti < 3;
     }
 
     // Gestione dell'invio del form
@@ -23,7 +19,7 @@
 
         // Validazione
         if (empty($nome)) {
-            $_SESSION['error_message'] = "<strong>Manca il nome dello studente</strong>";
+            $_SESSION['error_message'] = "<strong>Manca il nome dello studente </strong>";
             header("Location: error.php");
             exit;
         }
@@ -31,7 +27,8 @@
         // Controllo duplicati
         foreach ($_SESSION['students'] as $studente) {
             if ($studente['nome'] === $nome) {
-                echo "<h2>Errore: lo studente è già stato inserito.</h2>";
+                $_SESSION['error_message'] = "<strong> Studente già presente </strong>";
+                header("Location: error.php");
                 exit;
             }
         }
@@ -43,7 +40,7 @@
         $_SESSION['students'][] = [
             'nome' => $nome,
             'genere' => $genere,
-            'insufficienze' => $insufficienze,
+            'insufficienze' => $materie,
             'esito' => $esito
         ];
     }
@@ -63,12 +60,14 @@
             Lo Studente 
                 <?php 
                     $ans = "";
-                    if($esito){
-                        $ans = "è estato ammesso/a";
+                    if(!$esito){
+                        $ans = "Non è estato ammesso/a";
+                    } elseif($insufficienze > 0) {
+                        $ans = "Ammesso/a con debiti a " . "<u>" . implode(', ' , $materie) . "</u>";
                     } else {
-                        $ans = "non è estato ammesso/a";
+                        $ans = "È estato ammesso/a";
                     }
-                
+
                     echo $nome . " " . $ans; 
                 ?>
         </p>

@@ -21,7 +21,7 @@ session_start();
             }
             ?>
         </p>
-        <button onclick="window.location.href='../index.php'">Torna alla pagina principale</button>
+        <button onclick="window.location.href='../index.php'"> Torna alla pagina principale </button>
     </div>
 </body>
 </html>
