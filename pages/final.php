@@ -6,15 +6,20 @@ $students_data = $_SESSION['students'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Link CSS -->
+    <link rel="stylesheet" href="../css/remain.css">
+    <!--Script JS -->
+    <script src="../js/script.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Scrutinio Finale </title>
 </head>
 <body>
-    
+        
+    <div class="ans">
     <?php
-
         // Itera correttamente sull'array degli studenti
         foreach ($students_data as $student) {
             $ans = "";
@@ -29,10 +34,17 @@ $students_data = $_SESSION['students'];
             echo htmlspecialchars($student['nome']) . ": " . $ans . "<br>";
         }
 
-    ?>
+        ?>
+    </div>
 
-    <button onclick="window.location.href='reset.php'"> Cancella Tutti i Dati </button>
-    <button onclick="window.location.href='../index.php'"> Inserire un nuovo studento </button>
+    <div class="btn">
+        <button onclick="window.location.href='reset.php'"> Cancella Tutti i Dati </button>
+        <button onclick="window.location.href='../index.php'"> Inserire un nuovo studento </button>
+    </div>
+
+    <div class="btn-theme">
+        <button id="theme-toggle">Switch Theme</button> <!-- Pulsante per attivare il tema scuro -->
+    </div>
 
 </body>
 </html>
