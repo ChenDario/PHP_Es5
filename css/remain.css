@@ -5,6 +5,10 @@
     font-size: 25px;
 }
 
+.title{
+    text-align: center;
+}
+
 input[type="text"], select {
     width: calc(100% - 20px);
     margin-bottom: 10px;
@@ -21,6 +25,7 @@ input[type="text"], select {
    margin: auto;
    width: 50%;
    text-align: center; 
+   margin-top: 1cqmax;
 }
 
 button:hover {

@@ -18,22 +18,27 @@ $students_data = $_SESSION['students'];
 </head>
 <body>
         
-    <div class="ans">
-    <?php
-        // Itera correttamente sull'array degli studenti
-        foreach ($students_data as $student) {
-            $ans = "";
-            if(!$student['esito']){
-                $ans = "<strong> Non ammesso/a </strong>";
-            } elseif (count($student['insufficienze']) > 0 && count($student['insufficienze']) < 3) {
-                $ans = "<strong> Ammesso </strong>con debiti a " . implode(', ', $student['insufficienze']);
-            } else {
-                $ans = "<strong> Ammesso/a </strong>";
-            }
-            // Accedi correttamente ai dati degli studenti
-            echo htmlspecialchars($student['nome']) . ": " . $ans . "<br>";
-        }
+    <div class="title">
+        <h1>
+            TABELLONE SCRUTINIO
+        </h1>
+    </div>
 
+    <div class="ans">
+        <?php
+            // Itera correttamente sull'array degli studenti
+            foreach ($students_data as $student) {
+                $ans = "";
+                if(!$student['esito']){
+                    $ans = "<strong> Non ammesso/a </strong>";
+                } elseif (count($student['insufficienze']) > 0 && count($student['insufficienze']) < 3) {
+                    $ans = "<strong> Ammesso </strong>con debiti a " . implode(', ', $student['insufficienze']);
+                } else {
+                    $ans = "<strong> Ammesso/a </strong>";
+                }
+                // Accedi correttamente ai dati degli studenti
+                echo htmlspecialchars($student['nome']) . ": " . $ans . "<br>";
+            }
         ?>
     </div>
 
