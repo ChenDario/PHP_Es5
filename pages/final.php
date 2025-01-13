@@ -8,6 +8,7 @@ $students_data = $_SESSION['students'];
 <head>
     <!--Link CSS -->
     <link rel="stylesheet" href="../css/remain.css">
+    <link rel="stylesheet" href="../css/final.css">
     <!--Script JS -->
     <script src="../js/script.js"></script>
 
@@ -32,7 +33,7 @@ $students_data = $_SESSION['students'];
                 if(!$student['esito']){
                     $ans = "<strong> Non ammesso/a </strong>";
                 } elseif (count($student['insufficienze']) > 0 && count($student['insufficienze']) < 3) {
-                    $ans = "<strong> Ammesso </strong>con debiti a " . implode(', ', $student['insufficienze']);
+                    $ans = "<strong> Ammesso/a </strong>con debiti a " . implode(', ', $student['insufficienze']);
                 } else {
                     $ans = "<strong> Ammesso/a </strong>";
                 }

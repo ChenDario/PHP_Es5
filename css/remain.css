@@ -1,12 +1,7 @@
 .ans {
-    width: 50%;
+    width: 40%;
     margin: auto;
-    text-align: center;
     font-size: 25px;
-}
-
-.title{
-    text-align: center;
 }
 
 input[type="text"], select {
@@ -49,6 +44,7 @@ body {
     background-color: white; /* Sfondo chiaro */
     color: #333; /* Testo scuro */
     transition: all 0.3s ease-in-out; /* Transizione tra i temi */
+    text-align: center;
 }
 
 
